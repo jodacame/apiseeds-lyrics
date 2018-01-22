@@ -11,10 +11,10 @@ Is a simple module that provides lyrics from https://apiseeds.com/ directly into
 
 ### Params 
 
-* apikey (String) [Required]
-* artist (String) [Required]
-* track (String) [Required]
-* callback(response,headers) (Function) [Required]
+* **apikey** (String) [Required]
+* **artist** (String) [Required]
+* **track** (String) [Required]
+* **callback** (response,headers) (Function) [Required]
 
 ## Installation
 ```Bash
@@ -25,19 +25,36 @@ npm install -s apiseeds-lyrics
 npm install -g apiseeds-lyrics
 
 ```
-## Example
+## Example #1
 
 ```Javascript
 'use strict';
 
 var lyrics = require("apiseeds-lyrics");
 
-const apikey = 'YOUR-API-KEY';
+const apikey = 'YOUR-API-KEY'; // Get it here => https://apiseeds.com/
 
 lyrics.getLyric(apikey,"The Beatles","Yesterday",function(response,headers){
     console.log("Header", headers);
     console.log("Response",response);
 });
+```
+
+## Example #2
+```Javascript
+'use strict';
+
+var lyrics = require("apiseeds-lyrics");
+
+const apikey = 'YOUR-API-KEY'; // Get it here => https://apiseeds.com/
+
+
+var processLiryc = function (response, headers) {
+    console.log("Header", headers);
+    console.log("Response", response);
+}
+
+lyrics.getLyric(apikey, "The Beatles","Hey Jude",processLiryc);
 ```
 
 ## Important 
